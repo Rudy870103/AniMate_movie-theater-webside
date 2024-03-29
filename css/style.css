@@ -1,0 +1,23 @@
+*{
+    box-sizing: border-box;
+}
+
+.container-fluid{
+    background-color: black;
+    
+}
+
+aside{
+    height: 100vh;
+}
+
+.nav-bg{
+    background-color: #060c36;
+}
+.nav-link{
+    color: white !important;
+}
+
+.nav-item:hover{
+    background-color: #27338f;
+}
