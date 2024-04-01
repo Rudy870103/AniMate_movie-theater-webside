@@ -20,10 +20,15 @@
             </td>
         </tr>
         <tr>
+            <style>
+                .mem{
+                    color: white;
+                }
+            </style>
             <td></td>
             <td class="text-center">
                 <br>
-                <a href="?do=forget" class="forget">忘記密碼</a> | <a href="?do=reg" class="forget">尚未註冊</a>
+                <a href="?do=forget" class="mem">忘記密碼</a> | <a href="?do=reg" class="mem">尚未註冊</a>
             </td>
         </tr>
     </table>
@@ -55,8 +60,8 @@
                     if (parseInt(res) == 1) {
                         // 如果帳號為 'admin'，導向後台頁面
                         if ($("#acc").val() == 'admin') {
-                            location.href = 'index.php'
                             alert('管理者登入成功');
+                            location.href = 'back.php'
                         } else {
                             // 否則導向首頁
                             location.href = 'index.php';
