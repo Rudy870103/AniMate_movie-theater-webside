@@ -104,3 +104,5 @@ class DB{
 function to($url){
     header("location:$url");
 }
+
+$Member=new DB('member');

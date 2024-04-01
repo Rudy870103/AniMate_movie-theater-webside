@@ -3,6 +3,9 @@
     text-decoration: none;
     color: white;
 }
+input{
+    color: black;
+}
 
 .container-fluid{
     background-color: rgb(50, 50, 50);
@@ -26,6 +29,7 @@
 }
 
 .login-btn{
+    color: white;
     background-color:#27338f;
     border:1px solid #1f1f1f;
     border-radius: 10%;

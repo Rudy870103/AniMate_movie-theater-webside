@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="	https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./js/jquery-1.9.1min.js"></script>
+    <script src="./js/js.js"></script>
     <title>AniMate-Theater</title>
 </head>
 
@@ -22,7 +24,12 @@
                     <span class="navbar-toggler-icon"  style="border-color:white"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav" style="width:100%;padding-left: 70px;text-align:center">
+                    <style>
+                        .nav-item{
+                            margin: auto;
+                        }
+                    </style>
+                    <ul class="navbar-nav" style="width:100%;text-align:center;margin:auto">
                         <li class="nav-item" style="width: 25%;">
                             <a class="nav-link" href="index.php">首頁</a>
                         </li>
