@@ -9,8 +9,6 @@ input{
 
 .container-fluid{
     background-color: rgb(50, 50, 50);
-    height: 100vh;
-    overflow: hidden;
 }
 
 .nav-bg{
@@ -45,4 +43,10 @@ input{
 }
 .forget:hover{
     text-decoration:underline
+}
+
+footer{
+    height: 100px;
+    background-color: #060c36;
+    margin-top: 100px;
 }

@@ -1,8 +1,8 @@
-<header style="padding: 80px 0;">
+<header style="padding: 50px 0;">
     <h1 style="text-align: center;font-weight:700;">會員登入<span style="display: block;font-size:16px;margin-top:10px">Login</span></h1>
 </header>
 <div>
-    <table style="margin: auto;padding: 80px 0;">
+    <table style="margin: auto;padding: 50px 0;">
         <tr>
             <td class="text-end">帳號 : &nbsp</td>
             <td><input type="text" name="acc" id="acc" style="background-color:#f8f8f8 !important;border:1px solid #1f1f1f"></td>

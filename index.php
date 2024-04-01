@@ -18,7 +18,7 @@
         <aside>
             <nav class="navbar navbar-expand-lg nav-bg p-3 navbar-dark">
                 <a class="navbar-brand" href="index.php" style="display:inline-block">
-                    <img src="./img/logo.png" style="width:70px">
+                    <img src="./img/logo.png" style="width:70px">Animate
                 </a>
                 <button class="navbar-toggler" data-bs-theme="dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"  style="border-color:white"></span>
@@ -49,7 +49,7 @@
 
 
         <!-- 網頁內容 -->
-        <main class="p-2">
+        <main class="p-5">
             <?php
             $do=$_GET['do']??'main';
             $file="./front/{$do}.php";
@@ -67,7 +67,9 @@
 
 
 
-        <footer></footer>
+        <footer>
+
+        </footer>
     </div>
 </body>
 
