@@ -24,7 +24,7 @@
         <input type="text" name="email" id="email"><br><br>
         <div>
             <button class="login-btn" onclick="reg()">註冊</button>
-            <button class="login-btn" onclick="clean()">清除</button>
+            <button class="login-btn" onclick="clean()">重置</button>
         </div>
     </div>
 </div>

@@ -16,7 +16,7 @@
             <td class="text-center">
                 <br>
                 <input class="login-btn" type="button" value="登入" onclick="login()">
-                <input class="login-btn" type="reset" value="清除" onclick="clean()">
+                <input class="login-btn" type="reset" value="重置" onclick="clean()">
             </td>
         </tr>
         <tr>

@@ -37,13 +37,6 @@ input{
     color: #f8f8f8;
 }
 
-.forget{
-    text-decoration: none;
-    color: #ffffff;
-}
-.forget:hover{
-    text-decoration:underline
-}
 
 footer{
     height: 100px;

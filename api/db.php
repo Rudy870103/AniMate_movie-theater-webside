@@ -16,7 +16,7 @@ class DB{
         foreach($array as $key => $val){
             $tmp[]="`$key`='$val'";
         }
-        return$tmp;
+        return $tmp;
     }
 
     private function sql_all($sql,$array,$other){
