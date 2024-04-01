@@ -1,9 +1,11 @@
 *{
     box-sizing: border-box;
+    text-decoration: none;
+    color: white;
 }
 
 .container-fluid{
-    background-color: black;
+    background-color: rgb(50, 50, 50);
     height: 100vh;
     overflow: hidden;
 }
@@ -17,4 +19,26 @@
 
 .nav-item:hover{
     background-color: #27338f;
+}
+
+.hr{
+    border-top: 2px solid white;
+}
+
+.login-btn{
+    background-color:#27338f;
+    border:1px solid #1f1f1f;
+    border-radius: 10%;
+}
+.login-btn:hover{
+    background-color:#1f1f1f !important;
+    color: #f8f8f8;
+}
+
+.forget{
+    text-decoration: none;
+    color: #ffffff;
+}
+.forget:hover{
+    text-decoration:underline
 }
