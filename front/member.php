@@ -2,33 +2,31 @@
     <h1 style="text-align: center;font-weight:700;">會員登入<span style="display: block;font-size:16px;margin-top:10px">Login</span></h1>
 </header>
 <div>
-    <table style="margin: auto;padding: 50px 0;">
-        <tr>
-            <td class="text-end">帳號 : &nbsp</td>
-            <td><input type="text" name="acc" id="acc" style="background-color:#f8f8f8 !important;border:1px solid #1f1f1f"></td>
-        </tr>
-        <tr>
-            <td class="text-end">密碼 : &nbsp</td>
-            <td><input type="password" name="pw" id="pw" style="background-color:#f8f8f8;border:1px solid #1f1f1f"></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td class="text-center">
+    <div style="margin: auto;padding: 50px 0;text-align:center">
+        <div>帳號 : &nbsp<input type="text" name="acc" id="acc"></div><br>
+        <div>密碼 : &nbsp<input type="password" name="pw" id="pw"></div><br>
+        <div>
+            <input class="login-btn" type="button" value="登入" onclick="login()">
+            <input class="login-btn" type="reset" value="重置" onclick="clean()">
+        </div>
+        <br>
+        <div>
+            <a href="?do=forget" class="mem">忘記密碼</a> | <a href="?do=reg" class="mem">尚未註冊</a>
+        </div>
+    </div>
+    
                 <br>
-                <input class="login-btn" type="button" value="登入" onclick="login()">
-                <input class="login-btn" type="reset" value="重置" onclick="clean()">
             </td>
         </tr>
         <tr>
             <style>
-                .mem{
+                .mem {
                     color: white;
                 }
             </style>
             <td></td>
             <td class="text-center">
                 <br>
-                <a href="?do=forget" class="mem">忘記密碼</a> | <a href="?do=reg" class="mem">尚未註冊</a>
             </td>
         </tr>
     </table>
