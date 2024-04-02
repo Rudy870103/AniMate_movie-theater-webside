@@ -106,3 +106,5 @@ function to($url){
 }
 
 $Member=new DB('member');
+$Movie=new DB('movie');
+$Orders=new DB('orders');

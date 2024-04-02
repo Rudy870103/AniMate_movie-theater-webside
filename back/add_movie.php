@@ -8,14 +8,14 @@
         }
         input{
             width: 100%;
-            height: 40px;
+            height: 30px;
             text-align: center;
         }
         select, option{
             color: black;
         }
     </style>
-    <form action="./api/save_movie.php">
+    <form action="./api/save_movie.php" method="post" enctype="multipart/form-data">
         <table style="width: 50%;margin:auto">
             <tr>
                 <td >電影名稱 : </td>
@@ -59,12 +59,12 @@
             <tr>
                 <td>電影簡介 : </td>
                 <td>
-                    <textarea name="intro" id="intro" style="width: 100%;height:200px"></textarea>
+                    <textarea name="intro" id="intro" style="width: 100%;height:200px;color:black"></textarea>
                 </td>
             </tr>
             <tr>
                 <td>預告片 : </td>
-                <td><input type="file" name="trailer" id="trailer"></td>
+                <td><input type="text" name="trailer" id="trailer"></td>
             </tr>
             <tr>
                 <td>電影海報 : </td>
