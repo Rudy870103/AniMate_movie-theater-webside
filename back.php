@@ -30,17 +30,14 @@
                         }
                     </style>
                     <ul class="navbar-nav" style="width:100%;text-align:center;margin:auto">
-                        <li class="nav-item" style="width: 25%;">
-                            <a class="nav-link" href="index.php">首頁</a>
+                        <li class="nav-item">
+                            <a class="nav-link" href="?do=movie">院線片管理</a>
                         </li>
-                        <li class="nav-item" style="width: 25%;">
-                            <a class="nav-link" href="?do=movie_list">時刻表</a>
+                        <li class="nav-item">
+                            <a class="nav-link" href="?do=orders">訂票管理</a>
                         </li>
-                        <li class="nav-item" style="width: 25%;">
-                            <a class="nav-link" href="?do=member">會員專區</a>
-                        </li>
-                        <li class="nav-item" style="width: 25%;">
-                            <a class="nav-link" href="?do=news">活動公告</a>
+                        <li class="nav-item">
+                            <a class="nav-link" href="?do=news">活動公告管理</a>
                         </li>
                     </ul>
                 </div>

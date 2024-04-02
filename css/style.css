@@ -3,6 +3,10 @@
     text-decoration: none;
     color: white;
 }
+main{
+    min-height: 100vh;
+}
+
 input{
     color: black;
 }
@@ -30,7 +34,7 @@ input{
     color: white;
     background-color:#27338f;
     border:1px solid #1f1f1f;
-    border-radius: 10%;
+    border-radius: 10px;
 }
 .login-btn:hover{
     background-color:#1f1f1f !important;
@@ -41,5 +45,4 @@ input{
 footer{
     height: 100px;
     background-color: #060c36;
-    margin-top: 100px;
 }
