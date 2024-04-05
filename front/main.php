@@ -1,30 +1,31 @@
 <section class="left" style="width:50%">
     <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
+            <?php
+            $newest=$Movie->max('id');
+            $first_movie=$Movie->find($newest);
+            ?>
             <div class="carousel-item active">
-                <img src="./img/220px-Tenki_no_ko_Key_Visual.jpg" class="d-block" style="height: 60vh;margin:auto">
-                <p class="p-3" style="color:white;text-align:center">
-                    電影名稱: <br>
-                    上映日期: <br>
-                    分級: <br>
+                <img src="./img/<?=$first_movie['poster'];?>" class="d-block" style="height: 60vh;margin:auto">
+                <p class="p-3" style="color:white;text-align:center;line-height:40px">
+                    <span style="font-size: 20px;font-weight:bold"><?=$first_movie['name'];?></span><br>
+                    上映日期: <?=$first_movie['ondate'];?><br>
+                    分級: <img src="./img/level<?=$first_movie['level'];?>.png" width="50px"><br>
                 </p>
             </div>
+            <?php
+            $movies=$Movie->q("select * from `movie` where id<$newest && sh=1 order by ondate desc");
+            foreach($movies as $movie){
+            ?>
             <div class="carousel-item">
-                <img src="./img/171172784493906_P8841330.jpg" class="d-block" style="height: 60vh;margin:auto">
-                <p class="p-3" style="color:white;text-align:center">
-                    電影名稱: <br>
-                    上映日期: <br>
-                    分級: <br>
+                <img src="./img/<?=$movie['poster'];?>" class="d-block" style="height: 60vh;margin:auto">
+                <p class="p-3" style="color:white;text-align:center;line-height:40px">
+                    <span style="font-size: 20px;font-weight:bold"><?=$movie['name'];?></span><br>
+                    上映日期: <?=$movie['ondate'];?><br>
+                    分級: <img src="./img/level<?=$movie['level'];?>.png" width="50px"><br>
                 </p>
             </div>
-            <div class="carousel-item">
-                <img src="./img/poster-318x450.jpg" class="d-block" style="height: 60vh;margin:auto">
-                <p class="p-3" style="color:white;text-align:center">
-                    電影名稱: <br>
-                    上映日期: <br>
-                    分級: <br>
-                </p>
-            </div>
+            <?php } ?>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>

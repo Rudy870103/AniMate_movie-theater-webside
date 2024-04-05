@@ -19,7 +19,7 @@
 </style>
 <table class="mt-5 mx-auto">
     <?php
-    $movies = $Movie->all();
+    $movies = $Movie->all(" order by ondate desc");
     foreach ($movies as $movie) {
     ?>
         <tr>
@@ -41,10 +41,30 @@
                 <p>發行商 : <?= $movie['company']; ?></p>
             </td>
             <td>
-                <button class="login-btn">顯示</button>
+                <button class="login-btn show-btn" data-id='<?=$movie['id'];?>'><?=($movie['sh']==1)?'隱藏':'顯示';?></button>
                 <button class="login-btn" onclick="location.href='?do=edit_movie&id=<?=$movie['id'];?>'">編輯</button>
-                <button class="login-btn">刪除</button>
+                <button class="login-btn del" data-id='<?=$movie['id'];?>'>刪除</button>
             </td>
         </tr>
     <?php } ?>
 </table>
+
+<script>
+//  刪除按鈕
+$(".del").on("click",function(){
+    if(confirm("確定刪除該部電影?")){
+        $.post("./api/del.php",{table:'Movie',id:$(this).data('id')},()=>{
+            location.reload();
+        })
+    }
+})
+
+
+// 顯示按鈕
+$(".show-btn").on("click",function(){
+    let id=$(this).data('id');
+    $.post("./api/show.php",{id},()=>{
+        location.reload();
+    })
+})
+</script>
