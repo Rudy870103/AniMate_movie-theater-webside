@@ -1,3 +1,37 @@
+<?php include_once "db.php";
+
+$movie = $Movie->find($_GET['movie_id']);
+
+$date = $_GET['date'];
+
+$session = $_GET['session'];
+
+$orders = $Orders->all([
+    'movie' => $movie['name'],
+    'date' => $date,
+    'show_time' => $session
+]);
+
+// 建立一個空陣列來存放所有訂單的座位資料
+$seats = [];
+
+// 將所有訂單的座位資料合併到$seats的陣列中
+foreach ($orders as $order) {
+    
+    // 將座位資料反序列化後合併到$seats陣列中
+    $tmp = unserialize($order['seat']);
+    $seats = array_merge($seats, $tmp);
+}
+
+
+?>
+
+<div class="col-6 mx-auto mb-5" id="info">
+    <div>您選擇的電影是：<?=$movie['name'];?></div>
+    <div>您選擇的時刻是：<?=$date;?> <?=$session;?></div>
+    <div>您已經勾選<span id='tickets'>0</span>張票，最多可以購買四張票</div>
+</div>
+
 <div id="room">
     <!--建立一個容器來存放所有的座位-->
     <div class="seats">
@@ -36,14 +70,23 @@
                     $letter = chr(64 + $i);
                     echo "<div class='mx-5' style='display:inline-block'>$letter</div>";
                     for ($j = 1; $j <= 4; $j++) {
+                        if (in_array("$i-$j", $seats)) {
                     ?>
+                            <label>
+                                <input type='checkbox' name='chk' value='<?= $i . "-" . $j; ?>' class='chk' checked disabled>
+                                <span><?= $j; ?></span>
+                            </label>
+                        <?php
+                        }else{
+                        ?>
                         <!-- 建立一個座位的容器 -->
                         <!-- //座位勾選欄位 -->
                         <label>
-                            <input type='checkbox' name='chk' value='<?= $i; ?>' class='chk'>
+                            <input type='checkbox' name='chk' value='<?= $i . "-" . $j; ?>' class='chk'>
                             <span><?= $j; ?></span>
                         </label>
                     <?php
+                        }
                     }
                     echo "<div class='mx-5' style='display:inline-block'>$letter</div>";
                     ?>
@@ -53,13 +96,41 @@
     </div>
 </div>
 
-<div id="info">
-    <div>您選擇的電影是：</div>
-    <div>您選擇的時刻是：</div>
-    <div>您已經勾選<span id='tickets'>0</span>張票，最多可以購買四張票</div>
-    <div>
+<div class="col-6 mx-auto mt-5">
+    <div class="text-center mt-4">
         <!--使用jquery來切換顯示區塊-->
         <button class="login-btn" onclick="$('#select').show();$('#booking').hide()">上一步</button>
         <button class="login-btn" onclick="checkout()">訂購</button>
     </div>
 </div>
+<script>
+    let seat=new Array();
+
+    $(".chk").on("change",function(){
+        if($(this).prop('checked')){
+            if(seat.length+1<=4){
+                seat.push($(this).val())
+            }else{
+                $(this).prop('checked',false)
+                alert("最多只能勾選四張票");
+            }
+        }else{
+            seat.splice(seat.indexOf($(this).val()),1)
+        }
+
+        $("#tickets").text(seat.length);
+    })
+
+    function checkout(){
+        $.post("./api/checkout.php",
+        {   movie:'<?=$movie['name'];?>',
+            date:'<?=$date;?>',
+            show_time:'<?=$session;?>',
+            tiket:seat.length,
+            seat},
+            (no)=>{
+                location.href=`?do=result&no=${no}`;
+            }
+        )
+    }
+</script>
