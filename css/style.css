@@ -34,7 +34,8 @@ input{
     color: white;
     background-color:#27338f;
     border:1px solid #1f1f1f;
-    border-radius: 10px;
+    border-radius: 8px;
+    padding: 5px;
 }
 .login-btn:hover{
     background-color:#1f1f1f !important;
