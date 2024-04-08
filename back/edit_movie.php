@@ -69,7 +69,7 @@ $movie=$Movie->find($_GET['id']);
             </tr>
             <tr>
                 <td>預告片 : </td>
-                <td><input type="text" name="trailer" id="trailer"></td>
+                <td><input type="text" name="trailer" value="<?=htmlspecialchars($movie['trailer']);?>"></td>
             </tr>
             <tr>
                 <td>電影海報 : </td>

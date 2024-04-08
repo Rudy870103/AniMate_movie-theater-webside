@@ -6,7 +6,9 @@
             $first_movie=$Movie->find($newest);
             ?>
             <div class="carousel-item active">
-                <img src="./img/<?=$first_movie['poster'];?>" class="d-block" style="height: 60vh;margin:auto">
+                <a href="?do=intro&id=<?=$newest;?>">
+                    <img src="./img/<?=$first_movie['poster'];?>" class="d-block" style="height: 60vh;margin:auto">
+                </a>
                 <p class="p-3" style="color:white;text-align:center;line-height:40px">
                     <span style="font-size: 20px;font-weight:bold"><?=$first_movie['name'];?></span><br>
                     上映日期: <?=$first_movie['ondate'];?><br>
@@ -18,7 +20,9 @@
             foreach($movies as $movie){
             ?>
             <div class="carousel-item">
-                <img src="./img/<?=$movie['poster'];?>" class="d-block" style="height: 60vh;margin:auto">
+                <a href="?do=intro&id=<?=$movie['id'];?>">
+                    <img src="./img/<?=$movie['poster'];?>" class="d-block" style="height: 60vh;margin:auto">
+                </a>
                 <p class="p-3" style="color:white;text-align:center;line-height:40px">
                     <span style="font-size: 20px;font-weight:bold"><?=$movie['name'];?></span><br>
                     上映日期: <?=$movie['ondate'];?><br>
