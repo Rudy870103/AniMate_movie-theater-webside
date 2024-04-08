@@ -74,7 +74,7 @@ foreach ($orders as $order) {
                     ?>
                             <label>
                                 <input type='checkbox' name='chk' value='<?= $i . "-" . $j; ?>' class='chk' checked disabled>
-                                <span><?= $j; ?></span>
+                                <span style="background-color: purple;"><?= $j; ?></span>
                             </label>
                         <?php
                         }else{
