@@ -20,7 +20,24 @@
     tr {
         border: 1px solid white;
     }
+    select, option{
+        color: black;
+    }
 </style>
+<div class="text-center">
+    <input type="radio" name="type" value="date" checked>依日期
+    <input type="date" name="date" id="date">
+    <input type="radio" name="type" value="movie">依電影
+    <select name="movie" id="movie">
+        <?php
+        $movies=$Orders->q("select `movie` from `orders` Group by `movie`");
+        foreach($movies as $movie){
+            echo "<option value='{$movie['movie']}'>{$movie['movie']}</option>";
+        }
+        ?>
+    </select>
+    <button class="login-btn" onclick="gdel()">刪除</button>
+</div>
 <div class="container" style="height: 500px;overflow:auto">
     <table class="mt-5 mx-auto text-center">
         <tr>
@@ -60,26 +77,25 @@
 </div>
 
 <script>
-    //  刪除按鈕
-    $(".del").on("click", function() {
-        if (confirm("確定刪除該部電影?")) {
-            $.post("./api/del.php", {
-                table: 'Movie',
-                id: $(this).data('id')
-            }, () => {
+    function del(id){
+        if(confirm("確定刪除該筆訂單?")){
+        $.post("./api/del.php",{table:'Orders',id},()=>{
+            location.reload();
+            })
+        }
+    }
+
+    function gdel(){
+        let type=$("input[name='type']:checked").val();
+
+        let val=$("#"+type).val();
+
+        let chk=confirm(`是否刪除${type}為${val}的所有資料?`)
+
+        if(chk){
+            $.post("./api/gdel.php",{type,val},()=>{
                 location.reload();
             })
         }
-    })
-
-
-    // 顯示按鈕
-    $(".show-btn").on("click", function() {
-        let id = $(this).data('id');
-        $.post("./api/show.php", {
-            id
-        }, () => {
-            location.reload();
-        })
-    })
+    }
 </script>

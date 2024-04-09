@@ -28,7 +28,7 @@ foreach ($orders as $order) {
 
 <div class="col-6 mx-auto mb-5" id="info">
     <div>您選擇的電影是：<?=$movie['name'];?></div>
-    <div>您選擇的時刻是：<?=$date;?> <?=$session;?></div>
+    <div>您選擇的時刻是：<?=$date;?> 場次 : <?=$session;?></div>
     <div>您已經勾選<span id='tickets'>0</span>張票，最多可以購買四張票</div>
 </div>
 
@@ -122,15 +122,17 @@ foreach ($orders as $order) {
     })
 
     function checkout(){
-        $.post("./api/checkout.php",
-        {   movie:'<?=$movie['name'];?>',
-            date:'<?=$date;?>',
-            show_time:'<?=$session;?>',
-            tiket:seat.length,
-            seat},
-            (no)=>{
-                location.href=`?do=result&no=${no}`;
-            }
-        )
+        if(confirm('請確認訂票資料是否無誤')){
+            $.post("./api/checkout.php",
+            {   movie:'<?=$movie['name'];?>',
+                date:'<?=$date;?>',
+                show_time:'<?=$session;?>',
+                tiket:seat.length,
+                seat},
+                (no)=>{
+                    location.href=`?do=result&no=${no}`;
+                }
+            )
+        }
     }
 </script>
