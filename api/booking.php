@@ -70,10 +70,10 @@ foreach ($orders as $order) {
                     $letter = chr(64 + $i);
                     echo "<div class='mx-5' style='display:inline-block'>$letter</div>";
                     for ($j = 1; $j <= 4; $j++) {
-                        if (in_array("$i-$j", $seats)) {
+                        if (in_array("$letter-$j", $seats)) {
                     ?>
                             <label>
-                                <input type='checkbox' name='chk' value='<?= $i . "-" . $j; ?>' class='chk' checked disabled>
+                                <input type='checkbox' name='chk' value='<?= $letter . "-" . $j; ?>' class='chk' checked disabled>
                                 <span style="background-color: purple;"><?= $j; ?></span>
                             </label>
                         <?php
@@ -82,7 +82,7 @@ foreach ($orders as $order) {
                         <!-- 建立一個座位的容器 -->
                         <!-- //座位勾選欄位 -->
                         <label>
-                            <input type='checkbox' name='chk' value='<?= $i . "-" . $j; ?>' class='chk'>
+                            <input type='checkbox' name='chk' value='<?= $letter . "-" . $j; ?>' class='chk'>
                             <span><?= $j; ?></span>
                         </label>
                     <?php
