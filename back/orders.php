@@ -39,7 +39,7 @@
     <button class="login-btn" onclick="gdel()">刪除</button>
 </div>
 <div class="container" style="height: 500px;overflow:auto">
-    <table class="mt-5 mx-auto text-center">
+    <table id="orderList" class="mt-5 mx-auto text-center">
         <tr>
             <th>訂單編號</th>
             <th>電影名稱</th>
@@ -53,7 +53,7 @@
         $orders = $Orders->all();
         foreach ($orders as $order) {
         ?>
-            <tr>
+            <tr id="order_list">
                 <td><?=$order['no'];?></td>
                 <td><?=$order['movie'];?></td>
                 <td><?=$order['date'];?></td>
@@ -77,6 +77,11 @@
 </div>
 
 <script>
+
+    $("input[name='type'], #date, #movie").on('change', function() {
+        filterOrders();
+    });
+
     function del(id){
         if(confirm("確定刪除該筆訂單?")){
         $.post("./api/del.php",{table:'Orders',id},()=>{
@@ -97,5 +102,19 @@
                 location.reload();
             })
         }
+    }
+
+    function filterOrders(){
+        let type=$("input[name='type']:checked").val();
+        let value=$("#" + type).val();
+
+        $.ajax({
+            url:"./api/filter_orders.php",
+            method:"POST",
+            data: {type: type,value: value},
+            success: function(res){
+                $("#orderList").html(res);
+            }
+        })
     }
 </script>

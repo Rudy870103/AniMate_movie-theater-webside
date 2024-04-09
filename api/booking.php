@@ -28,7 +28,7 @@ foreach ($orders as $order) {
 
 <div class="col-6 mx-auto mb-5" id="info">
     <div>您選擇的電影是：<?=$movie['name'];?></div>
-    <div>您選擇的時刻是：<?=$date;?> 場次 : <?=$session;?></div>
+    <div>您選擇的時刻是：<?=$date;?> | 場次 : <?=$session;?></div>
     <div>您已經勾選<span id='tickets'>0</span>張票，最多可以購買四張票</div>
 </div>
 
