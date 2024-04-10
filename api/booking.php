@@ -25,11 +25,18 @@ foreach ($orders as $order) {
 
 
 ?>
+<form action="#">
 
-<div class="col-6 mx-auto mb-5" id="info">
-    <div>您選擇的電影是：<?= $movie['name']; ?></div>
-    <div>您選擇的時刻是：<?= $date; ?> | 場次 : <?= $session; ?></div>
-    <div>您已經勾選&nbsp<span id='tickets' style="color: yellow;">0</span>&nbsp張票，最多可以購買4張票</div>
+</form>
+<div class="col-6 mx-auto mb-5" id="info" style="display: flex;justify-content:space-between">
+    <div>
+        <div>您選擇的電影是：<?= $movie['name']; ?></div>
+        <div>您選擇的時刻是：<?= $date; ?> | 場次 : <?= $session; ?></div>
+        <div>您已經勾選&nbsp<span id='tickets' style="color: yellow;">0</span>&nbsp張票，最多可以購買4張票</div>
+    </div>
+    <div>
+        <img src="./img/<?=$movie['poster'];?>" width="100px">
+    </div>
 </div>
 
 <div id="room">
@@ -69,6 +76,7 @@ foreach ($orders as $order) {
             <?php
             for ($i = 1; $i <= 5; $i++) {
             ?>
+            
                 <div class='seat mx-5'>
                     <?php
                     $letter = chr(64 + $i);
@@ -103,11 +111,11 @@ foreach ($orders as $order) {
 
 <div class="col-6 mx-auto mt-5">
     <div class="text-center mt-4">
-        <!--使用jquery來切換顯示區塊-->
         <button class="login-btn" onclick="clean()">重置</button>
         <button class="login-btn" onclick="checkout()">訂購</button>
     </div>
 </div>
+
 <script>
     let seat = new Array();
 
@@ -141,4 +149,10 @@ foreach ($orders as $order) {
             )
         }
     }
+
+    function clean(){
+    $("input[type='checkbox']").prop('checked', false);
+    seat = []; // 清空座位数组
+    $("#tickets").text(0); // 重置座位数显示
+}
 </script>

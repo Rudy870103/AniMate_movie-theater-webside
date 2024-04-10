@@ -2,6 +2,14 @@
     select, option{
         color: black;
     }
+    .container{
+        display: flex;
+        justify-content: center;
+        gap: 50px;
+    }
+    .poster{
+        width: 30%;
+    }
 </style>
 <div class="container">
     <div id="select">
@@ -31,13 +39,21 @@
             </div>
         </div>
         <div class="row">
-            <div class="col">
-                <input class="login-btn" type="button" value="確定" onclick="booking()">
-                <input class="login-btn" type="reset" value="重置">
+            <div class="col text-center mt-3">
+                <input class="login-btn" type="button" value="前往購票" onclick="booking()">
             </div>
         </div>
     </div>
+    <div class="poster">
+        <?php
+        if($_GET['id']){
+            $movie=$Movie->find($_GET['id']);
+        ?>
+        <img src="./img/<?=$movie['poster'];?>" width="100%">
+        <?php } ?>
+    </div>
 </div>
+
 
 <div id="booking" style="display: none;">
     <button onclick="$('#select,#booking').toggle()">上一步</button>
@@ -88,6 +104,7 @@ function booking(){
     $.get("./api/booking.php",order,(booking)=>{
         $("#booking").html(booking)
         $('#select').hide();
+        $(".poster").hide();
         $('#booking').show()
     })
 }

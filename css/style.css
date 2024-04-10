@@ -16,14 +16,15 @@ input{
 }
 
 .nav-bg{
-    background-color: #060c36;
+    background-color: #052659;
+    font-weight: bold;
 }
 .nav-link{
     color: white !important;
 }
 
 .nav-item:hover{
-    background-color: #27338f;
+    background-color: #295aa3;
 }
 
 .hr{
@@ -32,18 +33,18 @@ input{
 
 .login-btn{
     color: white;
-    background-color:#27338f;
+    background-color:#052659;
     border:1px solid #1f1f1f;
     border-radius: 8px;
     padding: 5px 15px;
 }
 .login-btn:hover{
-    background-color:#1f1f1f !important;
+    background-color:#295aa3 !important;
     color: #f8f8f8;
 }
 
 
 footer{
     height: 100px;
-    background-color: #060c36;
+    background-color: #052659;
 }
