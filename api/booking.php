@@ -17,7 +17,7 @@ $seats = [];
 
 // 將所有訂單的座位資料合併到$seats的陣列中
 foreach ($orders as $order) {
-    
+
     // 將座位資料反序列化後合併到$seats陣列中
     $tmp = unserialize($order['seat']);
     $seats = array_merge($seats, $tmp);
@@ -27,14 +27,18 @@ foreach ($orders as $order) {
 ?>
 
 <div class="col-6 mx-auto mb-5" id="info">
-    <div>您選擇的電影是：<?=$movie['name'];?></div>
-    <div>您選擇的時刻是：<?=$date;?> | 場次 : <?=$session;?></div>
-    <div>您已經勾選<span id='tickets'>0</span>張票，最多可以購買四張票</div>
+    <div>您選擇的電影是：<?= $movie['name']; ?></div>
+    <div>您選擇的時刻是：<?= $date; ?> | 場次 : <?= $session; ?></div>
+    <div>您已經勾選&nbsp<span id='tickets' style="color: yellow;">0</span>&nbsp張票，最多可以購買4張票</div>
 </div>
 
 <div id="room">
     <!--建立一個容器來存放所有的座位-->
     <div class="seats">
+        <div style="display: flex;margin:auto;width: 500px;justify-content:end">
+            <div class="box text-center" style="background-color: purple;width:20px;height:20px"></div>
+            <span>&nbsp : &nbsp已訂位</span>
+        </div>
         <div class="screen" style="width: 500px;height: 30px;background-color: #ccc;text-align:center;margin:auto">
             <span style="text-align: center;color:black">螢幕舞台</span>
         </div>
@@ -77,14 +81,14 @@ foreach ($orders as $order) {
                                 <span style="background-color: purple;"><?= $j; ?></span>
                             </label>
                         <?php
-                        }else{
+                        } else {
                         ?>
-                        <!-- 建立一個座位的容器 -->
-                        <!-- //座位勾選欄位 -->
-                        <label>
-                            <input type='checkbox' name='chk' value='<?= $letter . "-" . $j; ?>' class='chk'>
-                            <span><?= $j; ?></span>
-                        </label>
+                            <!-- 建立一個座位的容器 -->
+                            <!-- //座位勾選欄位 -->
+                            <label>
+                                <input type='checkbox' name='chk' value='<?= $letter . "-" . $j; ?>' class='chk'>
+                                <span><?= $j; ?></span>
+                            </label>
                     <?php
                         }
                     }
@@ -96,41 +100,43 @@ foreach ($orders as $order) {
     </div>
 </div>
 
+
 <div class="col-6 mx-auto mt-5">
     <div class="text-center mt-4">
         <!--使用jquery來切換顯示區塊-->
-        <button class="login-btn" onclick="$('#select').show();$('#booking').hide()">上一步</button>
+        <button class="login-btn" onclick="clean()">重置</button>
         <button class="login-btn" onclick="checkout()">訂購</button>
     </div>
 </div>
 <script>
-    let seat=new Array();
+    let seat = new Array();
 
-    $(".chk").on("change",function(){
-        if($(this).prop('checked')){
-            if(seat.length+1<=4){
+    $(".chk").on("change", function() {
+        if ($(this).prop('checked')) {
+            if (seat.length + 1 <= 4) {
                 seat.push($(this).val())
-            }else{
-                $(this).prop('checked',false)
-                alert("最多只能勾選四張票");
+            } else {
+                $(this).prop('checked', false)
+                alert("最多只能勾選4張票");
             }
-        }else{
-            seat.splice(seat.indexOf($(this).val()),1)
+        } else {
+            seat.splice(seat.indexOf($(this).val()), 1)
         }
 
         $("#tickets").text(seat.length);
     })
 
-    function checkout(){
-        if(confirm('請確認訂票資料是否無誤')){
-            $.post("./api/checkout.php",
-            {   movie:'<?=$movie['name'];?>',
-                date:'<?=$date;?>',
-                show_time:'<?=$session;?>',
-                tiket:seat.length,
-                seat},
-                (no)=>{
-                    location.href=`?do=result&no=${no}`;
+    function checkout() {
+        if (confirm('請確認訂票資料是否無誤')) {
+            $.post("./api/checkout.php", {
+                    movie: '<?= $movie['name']; ?>',
+                    date: '<?= $date; ?>',
+                    show_time: '<?= $session; ?>',
+                    tiket: seat.length,
+                    seat
+                },
+                (no) => {
+                    location.href = `?do=result&no=${no}`;
                 }
             )
         }
