@@ -58,7 +58,7 @@
                 <td><?=$order['movie'];?></td>
                 <td><?=$order['date'];?></td>
                 <td><?=$order['show_time'];?></td>
-                <td><?=$order['tiket'];?></td>
+                <td><?=$order['ticket'];?></td>
                 <td>
                 <?php
                 $seats=unserialize($order['seat']);

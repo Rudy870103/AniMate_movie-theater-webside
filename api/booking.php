@@ -140,7 +140,7 @@ foreach ($orders as $order) {
                     movie: '<?= $movie['name']; ?>',
                     date: '<?= $date; ?>',
                     show_time: '<?= $session; ?>',
-                    tiket: seat.length,
+                    ticket: seat.length,
                     seat
                 },
                 (no) => {

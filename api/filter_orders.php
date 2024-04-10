@@ -9,7 +9,7 @@ foreach ($orders as $order) {
     echo  "<td>" . $order['movie'] . "</td>";
     echo  "<td>" . $order['date'] . "</td>";
     echo  "<td>" . $order['show_time'] . "</td>";
-    echo  "<td>" . $order['tiket'] . "</td>";
+    echo  "<td>" . $order['ticket'] . "</td>";
     echo  "<td>";
     $seats = unserialize($order['seat']);
     foreach ($seats as $seat) {

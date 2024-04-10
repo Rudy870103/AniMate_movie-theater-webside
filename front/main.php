@@ -61,10 +61,11 @@
     </style>
     <section class="right p-2">
         <div class="container" style="display: flex;justify-content:space-between">
-            <div>
+        <div>
+            <div style="font-weight:bold">
                 快速訂票
             </div>
-            <div id="select">
+            <div id="select" style="display: flex;">
                 <div class="row pt-1">
                     <div class="col">
                         電影 : <select name="movie" id="movie">
@@ -87,9 +88,13 @@
                     </div>
                 </div>
             </div>
+        </div>
             <div class="row">
-                <div class="col">
-                    <input class="login-btn" type="button" value="前往購票" onclick="booking()">
+                <div class="col" style="line-height: 30px;">
+                    <button class="login-btn p-3" onclick="booking()" style="height: 80px;">
+                    <i class="fa-solid fa-ticket fa-2xl" style="color: #74C0FC;font-size:50px"></i><br>
+                    <span style="font-size: 14px;">前往購票</span>
+                    </button>
                 </div>
             </div>
         </div>

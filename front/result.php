@@ -18,7 +18,7 @@ $order=$Orders->find(['no'=>$_GET['no']]);
                     echo $seat;
                     echo "、";
                 }
-                echo "共{$order['tiket']}張";
+                echo "共{$order['ticket']}張";
                 ?>
             </div>
             <div class="text-center mt-3">
