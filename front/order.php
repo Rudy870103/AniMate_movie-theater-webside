@@ -32,8 +32,8 @@
         </div>
         <div class="row">
             <div class="col">
-                <input type="button" value="確定" onclick="booking()">
-                <input type="reset" value="重置">
+                <input class="login-btn" type="button" value="確定" onclick="booking()">
+                <input class="login-btn" type="reset" value="重置">
             </div>
         </div>
     </div>
