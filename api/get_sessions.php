@@ -2,6 +2,7 @@
 $movie=$_GET['movie'];
 $movieName=$Movie->find($movie)['name'];
 $date=$_GET['date'];
+// 目前24小時制的小時數
 $H=date("G");
 $start=($H>=14 && $date==date("Y-m-d"))?7-ceil((24-$H)/2):1;
 

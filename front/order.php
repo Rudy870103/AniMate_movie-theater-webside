@@ -13,14 +13,14 @@
 </style>
 <div class="container">
     <div id="select">
-        <div class="row">
+        <div class="row pt-2">
             <div class="col">
                 電影 : <select name="movie" id="movie">
             
                 </select>
             </div>
         </div>
-        <div class="row">
+        <div class="row pt-2">
             <div class="col">
                 <div>
                     日期 : <select name="date" id="date">
@@ -29,7 +29,7 @@
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row pt-2">
             <div class="col">
                 <div>
                     場次 : <select name="session" id="session">
@@ -91,22 +91,52 @@ function getDates(id){
             getSessions(movie,date)
     })
 }
-function getSessions(movie,date){
-    $.get("./api/get_sessions.php",{movie,date},(sessions)=>{
+
+
+
+// 宣告一格變數，用來判斷是否還有場次
+let hasSession=true;
+
+function getSessions(movie, date) {
+    $.get("./api/get_sessions.php", {
+        movie,
+        date
+    }, (sessions) => {
+        if(sessions.length>0){
             $("#session").html(sessions);
+            hasSession=true;
+        }else{
+            let none="<option>目前尚無場次<option>";
+            $("#session").html(none);
+            hasSession=false;
+        }
+        
     })
 }
 
-function booking(){
-    let order={movie_id:$("#movie").val(),
-               date:$("#date").val(),
-               session:$("#session").val()}
-    $.get("./api/booking.php",order,(booking)=>{
-        $("#booking").html(booking)
-        $('#select').hide();
-        $(".poster").hide();
-        $('#booking').show()
-    })
+function booking() {
+    if(hasSession){
+        let movie_id=$("#movie").val();
+        let date=$("#date").val();
+        let session=$("#session").val();
+        
+        if(movie_id && date && session){
+            let order = {
+                movie_id: $("#movie").val(),
+                date: $("#date").val(),
+                session: $("#session").val()
+            }
+            $.get("./api/booking.php", order, (booking) => {
+                $("#booking").html(booking)
+                $('#main').hide();
+                $('#booking').show()
+            })
+        }else{
+            alert("請選擇電影、日期及場次");
+        }
+    }else{
+        alert("目前尚無場次");
+    }
 }
 
 </script>

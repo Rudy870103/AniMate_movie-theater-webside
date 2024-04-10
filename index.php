@@ -35,7 +35,7 @@
                             <a class="nav-link" href="index.php">首頁</a>
                         </li>
                         <li class="nav-item" style="width: 25%;">
-                            <a class="nav-link" href="?do=movie_list">時刻表</a>
+                            <a class="nav-link" href="?do=movie_list">現正熱映</a>
                         </li>
                         <li class="nav-item" style="width: 25%;">
                             <a class="nav-link" href="?do=member">會員專區</a>
