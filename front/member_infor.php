@@ -79,7 +79,7 @@
                         <th>訂購位置</th>
                     </tr>
                     <?php
-                    $orders = $Orders->all(['acc'=>$_SESSION['member']]);
+                    $orders = $Orders->all(['acc'=>$_SESSION['member']]," order by `id` desc");
                     foreach ($orders as $order) {
                     ?>
                         <tr id="order_list">
