@@ -19,7 +19,7 @@
 </style>
 <table class="mt-5 mx-auto">
     <?php
-    $movies = $Movie->all(" order by ondate desc");
+    $movies = $Movie->all(" order by id desc");
     foreach ($movies as $movie) {
     ?>
         <tr>

@@ -6,7 +6,7 @@
     $movies = $Movie->all(['sh' => 1]);
     foreach ($movies as $movie) {
     ?>
-        <div class="card mb-5" style="width: 23%;background-color:gray;">
+        <div class="card mb-5" style="width: 23%;background-color:gray;box-shadow:5px 5px 10px black">
             <div style="height: 28rem;overflow:hidden">
                 <img src="./img/<?= $movie['poster']; ?>" class="card-img-top" style="width:100%;">
             </div>

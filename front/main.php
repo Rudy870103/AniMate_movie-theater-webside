@@ -61,39 +61,39 @@
     </style>
     <section class="right p-2">
         <div class="container" style="display: flex;justify-content:space-between">
-        <div>
-            <div style="font-weight:bold">
-                快速訂票
+            <div>
+                <div style="font-weight:bold">
+                    快速訂票
+                </div>
+                <div id="select" style="display: flex;">
+                    <div class="row pt-1">
+                        <div class="col">
+                            電影 : <select name="movie" id="movie">
+
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row pt-1">
+                        <div class="col">
+                            日期 : <select name="date" id="date">
+
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row pt-1">
+                        <div class="col">
+                            場次 : <select name="session" id="session">
+
+                            </select>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div id="select" style="display: flex;">
-                <div class="row pt-1">
-                    <div class="col">
-                        電影 : <select name="movie" id="movie">
-
-                        </select>
-                    </div>
-                </div>
-                <div class="row pt-1">
-                    <div class="col">
-                        日期 : <select name="date" id="date">
-
-                        </select>
-                    </div>
-                </div>
-                <div class="row pt-1">
-                    <div class="col">
-                        場次 : <select name="session" id="session">
-
-                        </select>
-                    </div>
-                </div>
-            </div>
-        </div>
             <div class="row">
                 <div class="col" style="line-height: 30px;">
                     <button class="login-btn p-3" onclick="booking()" style="height: 80px;">
-                    <i class="fa-solid fa-ticket fa-2xl" style="color: #74C0FC;font-size:50px"></i><br>
-                    <span style="font-size: 14px;">前往購票</span>
+                        <i class="fa-solid fa-ticket fa-2xl" style="color: #74C0FC;font-size:50px"></i><br>
+                        <span style="font-size: 14px;">前往購票</span>
                     </button>
                 </div>
             </div>
@@ -144,36 +144,36 @@
     }
 
     // 宣告一格變數，用來判斷是否還有場次
-    let hasSession=true;
+    let hasSession = true;
 
     function getSessions(movie, date) {
         $.get("./api/get_sessions.php", {
             movie,
             date
         }, (sessions) => {
-            if(sessions.length>0){
+            if (sessions.length > 0) {
                 $("#session").html(sessions);
-                hasSession=true;
-            }else{
-                let none="<option>目前尚無場次<option>";
+                hasSession = true;
+            } else {
+                let none = "<option>目前尚無場次<option>";
                 $("#session").html(none);
-                hasSession=false;
+                hasSession = false;
             }
-            
+
         })
     }
 
     // 判斷是否有登入
-    let memberLogin=<?=(isset($_SESSION['member']))?'true':'false';?>;
+    let memberLogin = <?= (isset($_SESSION['member'])) ? 'true' : 'false'; ?>;
 
     function booking() {
-        if(memberLogin){
-            if(hasSession){
-                let movie_id=$("#movie").val();
-                let date=$("#date").val();
-                let session=$("#session").val();
-                
-                if(movie_id && date && session){
+        if (memberLogin) {
+            if (hasSession) {
+                let movie_id = $("#movie").val();
+                let date = $("#date").val();
+                let session = $("#session").val();
+
+                if (movie_id && date && session) {
                     let order = {
                         movie_id: $("#movie").val(),
                         date: $("#date").val(),
@@ -184,15 +184,15 @@
                         $('#main').hide();
                         $('#booking').show()
                     })
-                }else{
+                } else {
                     alert("請選擇電影、日期及場次");
                 }
-            }else{
+            } else {
                 alert("目前尚無場次");
             }
-        }else{
+        } else {
             alert("請先登入");
-            location.href='?do=member';
+            location.href = '?do=member';
         }
     }
 </script>
