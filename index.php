@@ -39,7 +39,12 @@
                             <a class="nav-link" href="?do=movie_list">現正熱映</a>
                         </li>
                         <li class="nav-item" style="width: 25%;">
-                            <a class="nav-link" href="?do=member">會員專區</a>
+                            <?php
+                            if(isset($_SESSION['member'] ) && $_SESSION['member']!='admin'){ ?>
+                                <a class="nav-link" href="?do=member_infor">會員專區</a>
+                            <?php }else{ ?>
+                                <a class="nav-link" href="?do=member">會員登入</a>
+                            <?php } ?>
                         </li>
                         <li class="nav-item" style="width: 25%;">
                             <a class="nav-link" href="?do=news">活動公告</a>
