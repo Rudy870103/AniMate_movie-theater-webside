@@ -8,6 +8,8 @@ $id=$Orders->max('id')+1;
 
 $_POST['no']=date("Ymd").sprintf("%04d",$id);
 
+$_POST['acc']=$_SESSION['member'];
+
 $Orders->save($_POST);
 
 echo $_POST['no'];
