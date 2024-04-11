@@ -163,28 +163,36 @@
         })
     }
 
+    // 判斷是否有登入
+    let memberLogin=<?=(isset($_SESSION['member']))?'true':'false';?>;
+
     function booking() {
-        if(hasSession){
-            let movie_id=$("#movie").val();
-            let date=$("#date").val();
-            let session=$("#session").val();
-            
-            if(movie_id && date && session){
-                let order = {
-                    movie_id: $("#movie").val(),
-                    date: $("#date").val(),
-                    session: $("#session").val()
+        if(memberLogin){
+            if(hasSession){
+                let movie_id=$("#movie").val();
+                let date=$("#date").val();
+                let session=$("#session").val();
+                
+                if(movie_id && date && session){
+                    let order = {
+                        movie_id: $("#movie").val(),
+                        date: $("#date").val(),
+                        session: $("#session").val()
+                    }
+                    $.get("./api/booking.php", order, (booking) => {
+                        $("#booking").html(booking)
+                        $('#main').hide();
+                        $('#booking').show()
+                    })
+                }else{
+                    alert("請選擇電影、日期及場次");
                 }
-                $.get("./api/booking.php", order, (booking) => {
-                    $("#booking").html(booking)
-                    $('#main').hide();
-                    $('#booking').show()
-                })
             }else{
-                alert("請選擇電影、日期及場次");
+                alert("目前尚無場次");
             }
         }else{
-            alert("目前尚無場次");
+            alert("請先登入");
+            location.href='?do=member';
         }
     }
 </script>
