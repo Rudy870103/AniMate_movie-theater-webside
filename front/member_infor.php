@@ -77,10 +77,9 @@
                         <th>場次時間</th>
                         <th>訂購數量</th>
                         <th>訂購位置</th>
-                        <th>操作</th>
                     </tr>
                     <?php
-                    $orders = $Orders->all();
+                    $orders = $Orders->all(['acc'=>$_SESSION['member']]);
                     foreach ($orders as $order) {
                     ?>
                         <tr id="order_list">
@@ -98,63 +97,9 @@
                                 }
                                 ?>
                             </td>
-                            <td>
-                                <button class="login-btn" onclick="del(<?= $order['id']; ?>)">刪除</button>
-                            </td>
                         </tr>
                     <?php } ?>
                 </table>
             </div>
-
-            <script>
-                $("input[name='type'], #date, #movie").on('change', function() {
-                    filterOrders();
-                });
-
-                function del(id) {
-                    if (confirm("確定刪除該筆訂單?")) {
-                        $.post("./api/del.php", {
-                            table: 'Orders',
-                            id
-                        }, () => {
-                            location.reload();
-                        })
-                    }
-                }
-
-                function gdel() {
-                    let type = $("input[name='type']:checked").val();
-
-                    let val = $("#" + type).val();
-
-                    let chk = confirm(`是否刪除${type}為${val}的所有資料?`)
-
-                    if (chk) {
-                        $.post("./api/gdel.php", {
-                            type,
-                            val
-                        }, () => {
-                            location.reload();
-                        })
-                    }
-                }
-
-                function filterOrders() {
-                    let type = $("input[name='type']:checked").val();
-                    let value = $("#" + type).val();
-
-                    $.ajax({
-                        url: "./api/filter_orders.php",
-                        method: "POST",
-                        data: {
-                            type: type,
-                            value: value
-                        },
-                        success: function(res) {
-                            $("#orderList").html(res);
-                        }
-                    })
-                }
-            </script>
         </div>
     </div>
