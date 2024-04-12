@@ -137,7 +137,7 @@
                         foreach($news as $new){
                         ?>
                         <div class="col mt-2">
-                            <a href="?do=news_content&id=<?=$new['id'];?>">
+                            <a href="?do=news-content&id=<?=$new['id'];?>">
                                 。<?=mb_substr($new['title'],0,18); ?>...
                             </a>
                         </div>
@@ -149,7 +149,7 @@
                         foreach($news as $new){
                         ?>
                         <div class="col mt-2">
-                            <a href="?do=news_content&id=<?=$new['id'];?>">
+                            <a href="?do=news-content&id=<?=$new['id'];?>">
                                 。<?=mb_substr($new['title'],0,18); ?>...
                             </a>
                         </div>
