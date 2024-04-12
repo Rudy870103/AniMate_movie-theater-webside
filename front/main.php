@@ -47,7 +47,7 @@
         .right {
             width: 50%;
             height: 100px;
-            background-color: #5483B3;
+            
         }
 
         select,
@@ -58,9 +58,30 @@
         .col {
             color: black
         }
+        .booking{
+            display: flex;
+            justify-content:space-between;
+            background-color: #5483B3;
+        }
+        .news-box{
+            border: 5px dotted #5483B3;
+            height: 200px;
+        }
+        .movieparadise{
+            height: 250px;
+            overflow: hidden;
+            background-image: url(./img/movieparadise.jpg);
+            background-size: cover;
+            background-position: center;
+        }
+        .movieparadise a{
+            display: inline-block;
+            width: 100%;
+            height: 250px;
+        }
     </style>
     <section class="right p-2">
-        <div class="container" style="display: flex;justify-content:space-between">
+        <div class="container p-2 booking">
             <div>
                 <div style="font-weight:bold">
                     快速訂票
@@ -100,13 +121,46 @@
         </div>
 
 
+        <div class="container my-4 p-2 news-box">
+            <div>
+                <div style="font-weight:bold">
+                    最新消息
+                </div>
+                <div id="select" style="display: flex;">
+                    <div class="row pt-1">
+                        <div class="col">
+                            電影 : <select name="movie" id="movie">
+
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row pt-1">
+                        <div class="col">
+                            日期 : <select name="date" id="date">
+
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row pt-1">
+                        <div class="col">
+                            場次 : <select name="session" id="session">
+
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container my-4 p-2 movieparadise">
+            <a href="https://rudy870103.github.io/" target="_blank"></a>
+        </div>
+
     </section>
 
 </div>
 
 <div id="booking" style="display: none;">
-    <button onclick="$('#select,#booking').toggle()">上一步</button>
-    <button>訂購</button>
 </div>
 
 <script>

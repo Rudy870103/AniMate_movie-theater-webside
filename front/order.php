@@ -11,7 +11,7 @@
         width: 30%;
     }
 </style>
-<div class="container">
+<div id="main" class="container">
     <div id="select">
         <div class="row pt-2">
             <div class="col">
@@ -56,8 +56,6 @@
 
 
 <div id="booking" style="display: none;">
-    <button onclick="$('#select,#booking').toggle()">上一步</button>
-    <button>訂購</button>
 </div>
 
 <script>
