@@ -114,3 +114,4 @@ $show_time=[1=>'14:00~16:00',
 $Member=new DB('member');
 $Movie=new DB('movie');
 $Orders=new DB('orders');
+$News=new DB('news');

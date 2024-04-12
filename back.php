@@ -38,7 +38,7 @@
                             <a class="nav-link" href="?do=orders">訂票管理</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="?do=news">活動公告管理</a>
+                            <a class="nav-link" href="?do=news">電影情報管理</a>
                         </li>
                     </ul>
                 </div>

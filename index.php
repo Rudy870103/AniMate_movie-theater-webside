@@ -47,7 +47,7 @@
                             <?php } ?>
                         </li>
                         <li class="nav-item" style="width: 25%;">
-                            <a class="nav-link" href="?do=news">活動公告</a>
+                            <a class="nav-link" href="?do=news">電影情報</a>
                         </li>
                     </ul>
                 </div>
