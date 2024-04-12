@@ -1,5 +1,87 @@
+<style>
+    /* Your existing styles here */
+    .left{
+        width: 50%;
+    }
+    .right {
+            width: 50%;
+            height: 100px;            
+        }
+
+        select,
+        option {
+            color: black;
+        }
+
+        .col {
+            color: black
+        }
+        .booking{
+            display: flex;
+            justify-content:space-between;
+            background-color: #5483B3;
+            z-index: 998;
+        }
+        .news-box{
+            border: 5px dotted #5483B3;
+            height: 200px;
+        }
+        .movieparadise{
+            height: 250px;
+            overflow: hidden;
+            background-image: url(./img/movieparadise.jpg);
+            background-size: cover;
+            background-position: center;
+        }
+        .movieparadise a{
+            display: inline-block;
+            width: 100%;
+            height: 250px;
+        }
+        a{
+            text-decoration: none;
+            color: white;
+        }
+        
+    @media (max-width: 768px) {
+        /* Styles for screens smaller than 768px wide */
+       #main{
+        flex-direction: column;
+       }
+       .left{
+        margin-top: 150px;
+       }
+        .left, .right {
+            width: 100%;
+            height: 100%;
+        }
+
+        .booking {
+            flex-direction: column;
+            position: absolute;
+            top:105px
+            
+        }
+        .booking button{
+            margin-top: 10px;
+            width: 100%;
+        }
+        .news-box{
+            overflow: hidden;
+        }
+        .news-box .d-flex {
+            flex-direction: column;
+        }
+
+        .news-box .col {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+    }
+</style>
+
 <div id="main" style="display: flex;">
-    <section class="left" style="width:50%">
+    <section class="left">
         <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <?php
@@ -43,47 +125,6 @@
         </div>
     </section>
 
-    <style>
-        .right {
-            width: 50%;
-            height: 100px;
-            
-        }
-
-        select,
-        option {
-            color: black;
-        }
-
-        .col {
-            color: black
-        }
-        .booking{
-            display: flex;
-            justify-content:space-between;
-            background-color: #5483B3;
-        }
-        .news-box{
-            border: 5px dotted #5483B3;
-            height: 200px;
-        }
-        .movieparadise{
-            height: 250px;
-            overflow: hidden;
-            background-image: url(./img/movieparadise.jpg);
-            background-size: cover;
-            background-position: center;
-        }
-        .movieparadise a{
-            display: inline-block;
-            width: 100%;
-            height: 250px;
-        }
-        a{
-            text-decoration: none;
-            color: white;
-        }
-    </style>
     <section class="right p-2">
         <div class="container p-2 booking">
             <div>
