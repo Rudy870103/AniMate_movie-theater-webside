@@ -79,11 +79,15 @@
             width: 100%;
             height: 250px;
         }
+        a{
+            text-decoration: none;
+            color: white;
+        }
     </style>
     <section class="right p-2">
         <div class="container p-2 booking">
             <div>
-                <div style="font-weight:bold">
+                <div class="mb-3" style="font-weight:bold">
                     快速訂票
                 </div>
                 <div id="select" style="display: flex;">
@@ -123,30 +127,33 @@
 
         <div class="container my-4 p-2 news-box">
             <div>
-                <div style="font-weight:bold">
+                <div class="mb-2" style="font-weight:bold">
                     最新消息
                 </div>
-                <div id="select" style="display: flex;">
-                    <div class="row pt-1">
-                        <div class="col">
-                            電影 : <select name="movie" id="movie">
-
-                            </select>
+                <div id="select" class="d-flex justify-content-around">
+                    <div class="pt-1">
+                        <?php
+                        $news=$News->all(" order by `id` desc limit 4");
+                        foreach($news as $new){
+                        ?>
+                        <div class="col mt-2">
+                            <a href="?do=news_content&id=<?=$new['id'];?>">
+                                。<?=mb_substr($new['title'],0,18); ?>...
+                            </a>
                         </div>
+                        <?php } ?>
                     </div>
-                    <div class="row pt-1">
-                        <div class="col">
-                            日期 : <select name="date" id="date">
-
-                            </select>
+                    <div class="pt-1">
+                        <?php
+                        $news=$News->all(" order by `id` desc limit 4,4");
+                        foreach($news as $new){
+                        ?>
+                        <div class="col mt-2">
+                            <a href="?do=news_content&id=<?=$new['id'];?>">
+                                。<?=mb_substr($new['title'],0,18); ?>...
+                            </a>
                         </div>
-                    </div>
-                    <div class="row pt-1">
-                        <div class="col">
-                            場次 : <select name="session" id="session">
-
-                            </select>
-                        </div>
+                        <?php } ?>
                     </div>
                 </div>
             </div>
