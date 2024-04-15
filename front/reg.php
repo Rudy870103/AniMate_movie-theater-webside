@@ -12,6 +12,11 @@
             width: 100%;
             text-align: center;
         }
+        @media(max-width:768px){
+            .reg{
+                width: 80%;
+            }
+        }
     </style>
     <div class="reg">
         <div>帳號</div>

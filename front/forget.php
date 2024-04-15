@@ -12,6 +12,11 @@
             width: 100%;
             text-align: center;
         }
+        @media(max-width:768px){
+            .forget{
+                width: 80%;
+            }
+        }
     </style>
     <div class="forget mb-5">
         請輸入註冊信箱
