@@ -1,13 +1,43 @@
+<style>
+    .movie-list{
+        display: flex;
+        flex-wrap:wrap;
+        margin:auto;
+        justify-content:start;
+        gap:2.6%;
+    }
+    .movie-card{
+        width: 23%;
+        background-color:gray;
+        box-shadow:5px 5px 10px black;
+    }
+    .movie-card-img{
+        height: 28rem;
+        overflow:hidden
+    }
+    @media (max-width: 768px){
+        .movie-list{
+            flex-direction: column;
+        }
+        .movie-card{
+            width: 100%;
+        }
+        .movie-card-img{
+            height: 100%;
+        }
+    }
+</style>
+
 <header style="padding: 50px 0;">
     <h1 style="text-align: center;font-weight:700;">現正熱映<span style="display: block;font-size:16px;margin-top:10px">Hot Now</span></h1>
 </header>
-<div style="display: flex;flex-wrap:wrap;margin:auto;justify-content:start;gap:2.6%">
+<div class="movie-list">
     <?php
     $movies = $Movie->all(['sh' => 1]);
     foreach ($movies as $movie) {
     ?>
-        <div class="card mb-5" style="width: 23%;background-color:gray;box-shadow:5px 5px 10px black">
-            <div style="height: 28rem;overflow:hidden">
+        <div class="card mb-5 movie-card">
+            <div class="movie-card-img">
                 <img src="./img/<?= $movie['poster']; ?>" class="card-img-top" style="width:100%;">
             </div>
             <div class="card-body d-flex flex-column justify-content-between">
