@@ -1,3 +1,10 @@
+<style>
+    @media (max-width: 768px){
+        .col-6{
+            width: 100%;
+        }
+    }
+</style>
 <?php
 $news = $News->find($_GET['id']);
 ?>
