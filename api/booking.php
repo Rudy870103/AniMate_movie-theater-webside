@@ -25,9 +25,13 @@ foreach ($orders as $order) {
 
 
 ?>
-<form action="#">
-
-</form>
+<style>
+    @media (max-width: 768px){
+        #info{
+            width: 100%;
+        }
+    }
+</style>
 <div class="col-6 mx-auto mb-5" id="info" style="display: flex;justify-content:space-between">
     <div>
         <div>您選擇的電影是：<?= $movie['name']; ?></div>
@@ -42,11 +46,11 @@ foreach ($orders as $order) {
 <div id="room">
     <!--建立一個容器來存放所有的座位-->
     <div class="seats">
-        <div style="display: flex;margin:auto;width: 500px;justify-content:end">
+        <div style="display: flex;margin:auto;width: 50%;justify-content:end">
             <div class="box text-center" style="background-color: purple;width:20px;height:20px"></div>
             <span>&nbsp : &nbsp已訂位</span>
         </div>
-        <div class="screen" style="width: 500px;height: 30px;background-color: #ccc;text-align:center;margin:auto">
+        <div class="screen" style="width: 50%;height: 30px;background-color: #ccc;text-align:center;margin:auto">
             <span style="text-align: center;color:black">螢幕舞台</span>
         </div>
 
@@ -77,10 +81,10 @@ foreach ($orders as $order) {
             for ($i = 1; $i <= 5; $i++) {
             ?>
             
-                <div class='seat mx-5'>
+                <div class='seat mx-4'>
                     <?php
                     $letter = chr(64 + $i);
-                    echo "<div class='mx-5' style='display:inline-block'>$letter</div>";
+                    echo "<div class='mx-4' style='display:inline-block'>$letter</div>";
                     for ($j = 1; $j <= 4; $j++) {
                         if (in_array("$letter-$j", $seats)) {
                     ?>
@@ -100,7 +104,7 @@ foreach ($orders as $order) {
                     <?php
                         }
                     }
-                    echo "<div class='mx-5' style='display:inline-block'>$letter</div>";
+                    echo "<div class='mx-4' style='display:inline-block'>$letter</div>";
                     ?>
                 </div>
             <?php } ?>

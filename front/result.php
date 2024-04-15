@@ -1,6 +1,13 @@
 <?php
 $order=$Orders->find(['no'=>$_GET['no']]);
 ?>
+<style>
+    @media(max-width:768px){
+        .col-6{
+            width: 100%;
+        }
+    }
+</style>
 <div class="container">
     <div class="row mt-3">
         <div class="col-6 mx-auto">
