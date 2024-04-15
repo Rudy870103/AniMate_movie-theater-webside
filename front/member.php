@@ -2,15 +2,22 @@
                 .mem {
                     color: white;
                 }
-                .mem:hover{
+
+                .mem:hover {
                     color: #052659;
+                }
+
+                @media (max-width:768px) {
+                    .login {
+                        width: 80%;
+                    }
                 }
             </style>
             <header style="padding: 50px 0;">
                 <h1 style="text-align: center;font-weight:700;">會員登入<span style="display: block;font-size:16px;margin-top:10px">Login</span></h1>
             </header>
             <div>
-                <div class="col-4" style="margin: auto;padding: 50px 0;text-align:center;background-color: #5483B3">
+                <div class="login col-4" style="margin: auto;padding: 50px 0;text-align:center;background-color: #5483B3">
                     <div>帳號 : &nbsp<input type="text" name="acc" id="acc"></div><br>
                     <div>密碼 : &nbsp<input type="password" name="pw" id="pw"></div><br>
                     <div>
