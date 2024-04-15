@@ -6,6 +6,11 @@
     .nav-tabs .nav-link.active {
         background-color: #295aa3;
     }
+    @media (max-width: 768px){
+        .col-3{
+            width: 80%;
+        }
+    }
 </style>
 
 <div style="width: 80%;margin:auto;">
@@ -66,6 +71,11 @@
                 select,
                 option {
                     color: black;
+                }
+                @media (max-width: 768px){
+                    table{
+                        width: 500px;
+                    }
                 }
             </style>
             <div class="container" style="height: 500px;overflow:auto">
