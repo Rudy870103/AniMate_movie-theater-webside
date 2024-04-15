@@ -14,10 +14,11 @@
     <title>AniMate-Theater</title>
 </head>
 <style>
-    nav{
+    nav {
         z-index: 999;
     }
 </style>
+
 <body>
     <div class="container-fluid" style="padding: 0;">
         <!-- navbar -->
@@ -27,11 +28,11 @@
                     <img src="./img/logo.png" style="width:70px">Animate
                 </a>
                 <button class="navbar-toggler" data-bs-theme="dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"  style="border-color:white"></span>
+                    <span class="navbar-toggler-icon" style="border-color:white"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <style>
-                        .nav-item{
+                        .nav-item {
                             margin: auto;
                         }
                     </style>
@@ -44,9 +45,9 @@
                         </li>
                         <li class="nav-item" style="width: 20%;">
                             <?php
-                            if(isset($_SESSION['member'] ) && $_SESSION['member']!='admin'){ ?>
+                            if (isset($_SESSION['member']) && $_SESSION['member'] != 'admin') { ?>
                                 <a class="nav-link" href="?do=member_infor">會員專區</a>
-                            <?php }else{ ?>
+                            <?php } else { ?>
                                 <a class="nav-link" href="?do=member">會員登入</a>
                             <?php } ?>
                         </li>
@@ -65,12 +66,12 @@
         <!-- 網頁內容 -->
         <main class="p-5">
             <?php
-            $do=$_GET['do']??'main';
-            $file="./front/{$do}.php";
+            $do = $_GET['do'] ?? 'main';
+            $file = "./front/{$do}.php";
 
-            if(file_exists($file)){
+            if (file_exists($file)) {
                 include $file;
-            }else{
+            } else {
                 include "./front/main.php";
             }
             ?>
@@ -78,11 +79,23 @@
 
         </main>
 
-
+            <style>
+                @media (max-width: 768px){
+                    footer .container{
+                        font-size: 12px;
+                        overflow: hidden;
+                    }
+                }
+            </style>
 
 
         <footer>
-
+            <div class="container text-center pt-5">
+                0917893235 | favoriteinfinite@gmail.com | © AniMate All rights reserved.
+                <a href="https://www.instagram.com/rudy_chenboru/" target="_blank">
+                    <i class="fa-brands fa-square-instagram" style="color: #74C0FC;font-size:30px;"></i>
+                </a>
+            </div>
         </footer>
     </div>
 </body>
