@@ -17,6 +17,6 @@
     <div class="col-4 mx-auto p-3">
         姓名 : 陳柏儒 Rudy<br>
         電話 : 0917893235<br>
-        信箱 : favoriteinfinite$gmail.com<br>
+        信箱 : favoriteinfinite@gmail.com<br>
     </div>
 </div>
