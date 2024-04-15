@@ -13,15 +13,42 @@
     tr {
         border-bottom: 1px solid white;
     }
-    a{
+
+    a {
         text-decoration: none;
     }
-    p:hover{
+
+    p:hover {
         color: #5483B3;
     }
-    p{
+
+    p {
         line-height: 130%;
-        text-align: justify;
+    }
+
+    .news-img {
+        width: 300px;
+    }
+
+    .news-content {
+        width: 70%;
+        vertical-align: top;
+    }
+
+    @media (max-width: 768px) {
+        .news-img {
+            width: 100%;
+        }
+
+        .news-content {
+            width: 100%;
+            vertical-align: top;
+        }
+
+        tr {
+            display: flex;
+            flex-direction: column;
+        }
     }
 </style>
 
@@ -33,10 +60,10 @@
         ?>
             <tr>
                 <td>
-                    <img src="./img/<?= $new['img']; ?>" style="width: 300px;">
+                    <img class="news-img" src="./img/<?= $new['img']; ?>">
                 </td>
-                <td style="width:70%;vertical-align: top;">
-                    <a href="?do=news-content&id=<?=$new['id'];?>">
+                <td class="news-content">
+                    <a href="?do=news-content&id=<?= $new['id']; ?>">
                         <p style="font-size: 20px;font-weight:bold;"><?= $new['title']; ?></p>
                     </a>
                 </td>
