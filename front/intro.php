@@ -1,19 +1,36 @@
+<style>
+@media (max-width: 768px){
+    .trailer{
+        width: 100%;
+        overflow: auto;
+    }
+    .intro-img{
+        width: 100%;
+    }
+    .intro-img img{
+        width: 100%;
+    }
+    .intro{
+        width: 100%;
+    }
+}
+</style>
 <?php
 $movie = $Movie->find($_GET['id']);
 ?>
 <div class="container">
     <div class="row">
-        <div class="col-6 mx-auto text-center">
+        <div class="trailer col-6 mx-auto text-center">
             <?= $movie['trailer']; ?>
         </div>
     </div>
     <div class="row mt-3">
-        <div class="col-6 mx-auto text-center">
+        <div class="intro-img col-6 mx-auto text-center">
             <img src="./img/<?= $movie['poster']; ?>" width="50%">
         </div>
     </div>
     <div class="row mt-3">
-        <div class="col-6 mx-auto">
+        <div class="intro col-6 mx-auto">
             <div class="text-center" style="font-size: 20px;font-weight:bold">
                 <?= $movie['name']; ?>
             </div>
