@@ -28,8 +28,8 @@
     }
 </style>
 
-<header style="padding: 50px 0;">
-    <h1 style="text-align: center;font-weight:700;">現正熱映<span style="display: block;font-size:16px;margin-top:10px">Hot Now</span></h1>
+<header style="padding: 20px 0;">
+    <h3 style="text-align: center;font-weight:700;">現正熱映<span style="display: block;font-size:16px;margin-top:10px">Hot Now</span></h3>
 </header>
 <div class="movie-list">
     <?php

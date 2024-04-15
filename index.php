@@ -36,13 +36,13 @@
                         }
                     </style>
                     <ul class="navbar-nav" style="width:100%;text-align:center;margin:auto">
-                        <li class="nav-item" style="width: 25%;">
+                        <li class="nav-item" style="width: 20%;">
                             <a class="nav-link" href="index.php">首頁</a>
                         </li>
-                        <li class="nav-item" style="width: 25%;">
+                        <li class="nav-item" style="width: 20%;">
                             <a class="nav-link" href="?do=movie_list">現正熱映</a>
                         </li>
-                        <li class="nav-item" style="width: 25%;">
+                        <li class="nav-item" style="width: 20%;">
                             <?php
                             if(isset($_SESSION['member'] ) && $_SESSION['member']!='admin'){ ?>
                                 <a class="nav-link" href="?do=member_infor">會員專區</a>
@@ -50,8 +50,11 @@
                                 <a class="nav-link" href="?do=member">會員登入</a>
                             <?php } ?>
                         </li>
-                        <li class="nav-item" style="width: 25%;">
+                        <li class="nav-item" style="width: 20%;">
                             <a class="nav-link" href="?do=news">電影情報</a>
+                        </li>
+                        <li class="nav-item" style="width: 20%;">
+                            <a class="nav-link" href="?do=contact">聯絡我們</a>
                         </li>
                     </ul>
                 </div>
