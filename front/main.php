@@ -1,57 +1,63 @@
 <style>
     /* Your existing styles here */
-    .left{
+    .left {
         width: 50%;
     }
-    .right {
-            width: 50%;
-            height: 100px;            
-        }
 
-        select,
-        option {
-            color: black;
-        }
+    select,
+    option {
+        color: black;
+    }
 
-        .col {
-            color: black
-        }
-        .booking{
-            display: flex;
-            justify-content:space-between;
-            background-color: #5483B3;
-            z-index: 998;
-        }
-        .news-box{
-            border: 5px dotted #5483B3;
-            height: 200px;
-        }
-        .movieparadise{
-            height: 250px;
-            overflow: hidden;
-            background-image: url(./img/movieparadise.jpg);
-            background-size: cover;
-            background-position: center;
-        }
-        .movieparadise a{
-            display: inline-block;
-            width: 100%;
-            height: 250px;
-        }
-        a{
-            text-decoration: none;
-            color: white;
-        }
-        
+    .col {
+        color: black
+    }
+
+    .booking {
+        display: flex;
+        justify-content: space-between;
+        background-color: #5483B3;
+        z-index: 998;
+    }
+
+    .news-box {
+        border: 5px dotted #5483B3;
+        height: 200px;
+        overflow: auto;
+    }
+
+    .movieparadise {
+        height: 250px;
+        overflow: hidden;
+        background-image: url(./img/movieparadise.jpg);
+        background-size: cover;
+        background-position: center;
+    }
+
+    .movieparadise a {
+        display: inline-block;
+        width: 100%;
+        height: 250px;
+    }
+
+    a {
+        text-decoration: none;
+        color: white;
+    }
+
     @media (max-width: 768px) {
+
         /* Styles for screens smaller than 768px wide */
-       #main{
-        flex-direction: column;
-       }
-       .left{
-        margin-top: 150px;
-       }
-        .left, .right {
+        #main {
+            flex-direction: column;
+        }
+
+        .left {
+            margin-top: 150px;
+        }
+
+        .left,
+        .right {
             width: 100%;
             height: 100%;
         }
@@ -59,16 +65,23 @@
         .booking {
             flex-direction: column;
             position: absolute;
-            top:105px
-            
+            top: 105px;
+            width: 75%;
         }
-        .booking button{
+
+        #select {
+            flex-direction: column;
+        }
+
+        .booking button {
             margin-top: 10px;
             width: 100%;
         }
-        .news-box{
-            overflow: hidden;
+
+        .news-box {
+            overflow: auto;
         }
+
         .news-box .d-flex {
             flex-direction: column;
         }
@@ -169,31 +182,31 @@
         <div class="container my-4 p-2 news-box">
             <div>
                 <div class="mb-2" style="font-weight:bold">
-                    最新消息
+                    電影情報
                 </div>
                 <div id="select" class="d-flex justify-content-around">
                     <div class="pt-1">
                         <?php
-                        $news=$News->all(" order by `id` desc limit 4");
-                        foreach($news as $new){
+                        $news = $News->all(" order by `id` desc limit 4");
+                        foreach ($news as $new) {
                         ?>
-                        <div class="col mt-2">
-                            <a href="?do=news-content&id=<?=$new['id'];?>">
-                                。<?=mb_substr($new['title'],0,18); ?>...
-                            </a>
-                        </div>
+                            <div class="col mt-2">
+                                <a href="?do=news-content&id=<?= $new['id']; ?>">
+                                    。<?= mb_substr($new['title'], 0, 18); ?>...
+                                </a>
+                            </div>
                         <?php } ?>
                     </div>
                     <div class="pt-1">
                         <?php
-                        $news=$News->all(" order by `id` desc limit 4,4");
-                        foreach($news as $new){
+                        $news = $News->all(" order by `id` desc limit 4,4");
+                        foreach ($news as $new) {
                         ?>
-                        <div class="col mt-2">
-                            <a href="?do=news-content&id=<?=$new['id'];?>">
-                                。<?=mb_substr($new['title'],0,18); ?>...
-                            </a>
-                        </div>
+                            <div class="col mt-2">
+                                <a href="?do=news-content&id=<?= $new['id']; ?>">
+                                    。<?= mb_substr($new['title'], 0, 18); ?>...
+                                </a>
+                            </div>
                         <?php } ?>
                     </div>
                 </div>
