@@ -22,15 +22,18 @@
                     <img src="./img/logo.png" style="width:70px">Animate
                 </a>
                 <button class="navbar-toggler" data-bs-theme="dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"  style="border-color:white"></span>
+                    <span class="navbar-toggler-icon" style="border-color:white"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <style>
-                        .nav-item{
+                        .nav-item {
                             margin: auto;
                         }
                     </style>
                     <ul class="navbar-nav" style="width:100%;text-align:center;margin:auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="?do=member">會員管理</a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="?do=movie">院線片管理</a>
                         </li>
@@ -49,12 +52,12 @@
         <!-- 網頁內容 -->
         <main class="p-5">
             <?php
-            $do=$_GET['do']??'main';
-            $file="./back/{$do}.php";
+            $do = $_GET['do'] ?? 'main';
+            $file = "./back/{$do}.php";
 
-            if(file_exists($file)){
+            if (file_exists($file)) {
                 include $file;
-            }else{
+            } else {
                 include "./back/main.php";
             }
             ?>
