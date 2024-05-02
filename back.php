@@ -3,13 +3,14 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="	https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="./js/jquery-1.9.1min.js"></script>
     <script src="./js/js.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <title>AniMate-Theater</title>
 </head>
 
@@ -19,7 +20,7 @@
         <aside>
             <nav class="navbar navbar-expand-lg nav-bg p-3 navbar-dark">
                 <a class="navbar-brand" href="index.php" style="display:inline-block">
-                    <img src="./img/logo.png" style="width:70px">Animate
+                    <img src="./img/Logo_movie.png" title="AniMate-Theater" style="width:250px">
                 </a>
                 <button class="navbar-toggler" data-bs-theme="dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon" style="border-color:white"></span>
@@ -69,7 +70,12 @@
 
 
         <footer>
-
+            <div class="container text-center pt-5">
+                0917893235 | favoriteinfinite@gmail.com | © AniMate All rights reserved.
+                <a href="https://www.instagram.com/rudy_chenboru/" target="_blank">
+                    <i class="fa-brands fa-square-instagram" style="color: #74C0FC;font-size:30px;"></i>
+                </a>
+            </div>
         </footer>
     </div>
 </body>
