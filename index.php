@@ -25,25 +25,20 @@
         <aside>
             <nav class="navbar navbar-expand-lg nav-bg p-3 navbar-dark">
                 <a class="navbar-brand" href="index.php" style="display:inline-block">
-                    <img src="./img/logo.png" style="width:70px">Animate
+                    <img src="./img/Logo_movie.png" title="AniMate-Theater" style="width:250px">
                 </a>
                 <button class="navbar-toggler" data-bs-theme="dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon" style="border-color:white"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
-                    <style>
-                        .nav-item {
-                            margin: auto;
-                        }
-                    </style>
-                    <ul class="navbar-nav" style="width:100%;text-align:center;margin:auto">
-                        <li class="nav-item" style="width: 20%;">
+                    <ul class="navbar-nav d-flex" style="width:100%;justify-content: end;">
+                        <li class="nav-item">
                             <a class="nav-link" href="index.php">首頁</a>
                         </li>
-                        <li class="nav-item" style="width: 20%;">
+                        <li class="nav-item">
                             <a class="nav-link" href="?do=movie_list">現正熱映</a>
                         </li>
-                        <li class="nav-item" style="width: 20%;">
+                        <li class="nav-item">
                             <?php
                             if (isset($_SESSION['member']) && $_SESSION['member'] != 'admin') { ?>
                                 <a class="nav-link" href="?do=member_infor">會員專區</a>
@@ -51,10 +46,10 @@
                                 <a class="nav-link" href="?do=member">會員登入</a>
                             <?php } ?>
                         </li>
-                        <li class="nav-item" style="width: 20%;">
+                        <li class="nav-item">
                             <a class="nav-link" href="?do=news">電影情報</a>
                         </li>
-                        <li class="nav-item" style="width: 20%;">
+                        <li class="nav-item">
                             <a class="nav-link" href="?do=contact">聯絡我們</a>
                         </li>
                     </ul>
